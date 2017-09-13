@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+        <title>kwc-product-icon test</title>
+
+        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+        <script src="../../web-component-tester/browser.js"></script>
+
+        <link rel="import" href="../kwc-product-icon.html">
+    </head>
+    <body>
+        <test-fixture id="basic">
+            <template>
+                <kwc-product-icon></kwc-product-icon>
+            </template>
+        </test-fixture>
+
+        <test-fixture id="populated">
+            <template>
+                <kwc-product-icon title="Computer Kit"
+                                  icon="computer-kit"
+                                  href="/store/products/computer-kit"
+                                  display-title>
+                                  </kwc-product-icon>
+            </template>
+        </test-fixture>
+
+        <script>
+            suite('kwc-product-icon', function() {
+                var basic,
+                    populated,
+                    titleText = 'Computer Kit',
+                    iconType = 'computer-kit',
+                    hrefText = '/store/products/computer-kit';
+
+                setup(function () {
+                    basic = fixture('basic');
+                    populated = fixture('populated');
+                });
+
+                test('instantiating the element works', function() {
+                    assert.equal(basic.is, 'kwc-product-icon');
+                    assert.equal(populated.is, 'kwc-product-icon');
+                });
+
+                test('the title should be null by default', function() {
+                    assert.equal(basic.title, null);
+                });
+
+                test('the display title property should be null by default', function() {
+                    assert.equal(basic.displayTitle, false);
+                });
+
+                test('the icon should be null by default', function() {
+                    assert.equal(basic.icon, null);
+                });
+
+                test('the href should be null by default', function() {
+                    assert.equal(basic.href, null);
+                });
+
+                test('it should be possible to set the title declaratively', function() {
+                    assert.equal(populated.title, titleText);
+                });
+
+                test('it should be possible to set the display title declaratively property', function() {
+                    assert.equal(populated.displayTitle, true);
+                });
+
+                test('it should be possible to set the icon declaratively', function() {
+                    assert.equal(populated.icon, iconType);
+                });
+
+                test('it should be possible to set the href declaratively', function() {
+                    assert.equal(populated.href, hrefText);
+                });
+
+                test('setting the title should render it in the DOM', function() {
+                    flush(function () {
+                        var titleElement =  Polymer.dom(populated.root).querySelector('span');
+                        assert.equal(titleElement.textContent, titleText);
+                    });
+                });
+
+                test('not setting the title should not render it in the DOM', function() {
+                    flush(function () {
+                        var titleElement =  Polymer.dom(basic.root).querySelector('span');
+                        assert.equal(titleElement, null);
+                    });
+                });
+
+                test('setting the href should render a link in the DOM with the title as the product title', function() {
+                    var linkElement =  Polymer.dom(populated.root).querySelector('a');
+                    assert.equal(linkElement.href, window.location.origin + hrefText);
+                    assert.equal(linkElement.title, titleText);
+                });
+
+                test('setting the icon should render an kwc-product-iconset icon in the DOM', function() {
+                    var iconElement =  Polymer.dom(populated.root).querySelector('iron-icon');
+                    assert.equal(iconElement.icon, 'kano-products:' + iconType);
+                });
+            });
+        </script>
+    </body>
+</html>

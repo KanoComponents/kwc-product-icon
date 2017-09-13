@@ -1,0 +1,77 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-flex-layout/iron-flex-layout.html">
+<link rel="import" href="../web-components/kano-style/kano-style.html">
+<link rel="import" href="./kwc-product-iconset.html">
+
+<!--
+`kwc-product-icon`
+To display a simple product icon and title that link through to the product details.
+
+@demo demo/index.html
+-->
+
+<dom-module id="kwc-product-icon">
+    <template>
+        <style>
+            :host {
+                display: inline-block;
+            }
+            :host a {
+                @apply --layout-horizontal;
+                @apply --layout-center;
+                @apply --layout-start-justified;
+                color: var(--color-grey);
+                font-family: var(--font-body);
+                font-weight: bold;
+                text-decoration: none;
+            }
+            :host iron-icon {
+                margin-right: 6px;
+            }
+            :host a:hover iron-icon {
+                color: var(--color-kano-orange);
+            }
+            :host a:hover span {
+                color: var(--color-black);
+            }
+        </style>
+        <a href$="[[href]]" title$="[[title]]">
+            <iron-icon icon="kano-products:[[icon]]"
+                       alt$="[[title]]"></iron-icon>
+            <template is="dom-if" if="[[displayTitle]]">
+                <span>[[title]]</span>
+            </template>
+        </a>
+    </template>
+
+    <script>
+        Polymer({
+            is: 'kwc-product-icon',
+            properties: {
+                /**
+                 * Boolean to determine whether the title
+                 * should be displayed
+                 */
+                displayTitle: {
+                    type: Boolean,
+                    value: false
+                },
+                /** The URI to link to the product details */
+                href: {
+                    type: String,
+                    value: null
+                },
+                /** The product icon from `kwc-product-iconset` */
+                icon: {
+                    type: String,
+                    value: null
+                },
+                /** The product title */
+                title: {
+                    type: String,
+                    value: null
+                }
+            }
+        });
+    </script>
+</dom-module>

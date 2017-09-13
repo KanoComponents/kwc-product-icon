@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+        <title>kwc-product-icon demo</title>
+
+        <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+        <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+        <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+        <link rel="import" href="../kwc-product-icon.html">
+
+        <custom-style>
+            <style is="custom-style" include="demo-pages-shared-styles"></style>
+        </custom-style>
+    </head>
+    <body>
+        <div class="vertical-section-container centered">
+            <h3>Product Icons With Titles</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-product-icon title="Computer Kit"
+                                      icon="computer-kit"
+                                      href="https://kano.me/store/products/computer-kit"
+                                      display-title>
+                                      </kwc-product-icon>
+                    <kwc-product-icon title="Computer Kit Complete"
+                                      icon="computer-kit-complete"
+                                      href="https://kano.me/store/products/kano-complete"
+                                      display-title>
+                                      </kwc-product-icon>
+                    <kwc-product-icon title="Pixel Kit"
+                                      icon="pixel-kit"
+                                      href="https://kano.me/store/products/pixel-kit"
+                                      display-title>
+                                      </kwc-product-icon>
+                    <kwc-product-icon title="Motion Sensor Kit"
+                                      icon="motion-sensor-kit"
+                                      href="https://kano.me/store/products/motion-sensor-kit"
+                                      display-title>
+                                      </kwc-product-icon>
+                </template>
+            </demo-snippet>
+        </div>
+        <div class="vertical-section-container centered">
+            <h3>Product Icons Without Titles</h3>
+            <demo-snippet>
+                <template>
+                    <kwc-product-icon title="Computer Kit"
+                                      icon="computer-kit"
+                                      href="https://kano.me/store/products/computer-kit">
+                                      </kwc-product-icon>
+                    <kwc-product-icon title="Computer Kit Complete"
+                                      icon="computer-kit-complete"
+                                      href="https://kano.me/store/products/kano-complete">
+                                      </kwc-product-icon>
+                    <kwc-product-icon title="Pixel Kit"
+                                      icon="pixel-kit"
+                                      href="https://kano.me/store/products/pixel-kit">
+                                      </kwc-product-icon>
+                    <kwc-product-icon title="Motion Sensor Kit"
+                                      icon="motion-sensor-kit"
+                                      href="https://kano.me/store/products/motion-sensor-kit">
+                                      </kwc-product-icon>
+                </template>
+            </demo-snippet>
+        </div>
+    </body>
+</html>
