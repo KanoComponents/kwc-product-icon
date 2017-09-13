@@ -36,7 +36,7 @@ To display a simple product icon and title that link through to the product deta
             }
         </style>
         <a href$="[[href]]" title$="[[title]]">
-            <iron-icon icon="kano-products:[[icon]]"
+            <iron-icon icon="kano-products:[[iconId]]"
                        alt$="[[title]]"></iron-icon>
             <template is="dom-if" if="[[displayTitle]]">
                 <span>[[title]]</span>
@@ -62,7 +62,7 @@ To display a simple product icon and title that link through to the product deta
                     value: null
                 },
                 /** The product icon from `kwc-product-iconset` */
-                icon: {
+                iconId: {
                     type: String,
                     value: null
                 },

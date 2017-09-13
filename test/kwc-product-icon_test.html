@@ -21,7 +21,7 @@
         <test-fixture id="populated">
             <template>
                 <kwc-product-icon title="Computer Kit"
-                                  icon="computer-kit"
+                                  icon-id="computer-kit"
                                   href="/store/products/computer-kit"
                                   display-title>
                                   </kwc-product-icon>
@@ -33,7 +33,7 @@
                 var basic,
                     populated,
                     titleText = 'Computer Kit',
-                    iconType = 'computer-kit',
+                    iconId = 'computer-kit',
                     hrefText = '/store/products/computer-kit';
 
                 setup(function () {
@@ -54,8 +54,8 @@
                     assert.equal(basic.displayTitle, false);
                 });
 
-                test('the icon should be null by default', function() {
-                    assert.equal(basic.icon, null);
+                test('the icon ID should be null by default', function() {
+                    assert.equal(basic.iconId, null);
                 });
 
                 test('the href should be null by default', function() {
@@ -71,7 +71,7 @@
                 });
 
                 test('it should be possible to set the icon declaratively', function() {
-                    assert.equal(populated.icon, iconType);
+                    assert.equal(populated.iconId, iconId);
                 });
 
                 test('it should be possible to set the href declaratively', function() {
@@ -98,9 +98,9 @@
                     assert.equal(linkElement.title, titleText);
                 });
 
-                test('setting the icon should render an kwc-product-iconset icon in the DOM', function() {
+                test('setting the icon ID should render an kwc-product-iconset icon in the DOM', function() {
                     var iconElement =  Polymer.dom(populated.root).querySelector('iron-icon');
-                    assert.equal(iconElement.icon, 'kano-products:' + iconType);
+                    assert.equal(iconElement.icon, 'kano-products:' + iconId);
                 });
             });
         </script>
