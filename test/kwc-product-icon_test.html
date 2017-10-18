@@ -21,6 +21,7 @@
         <test-fixture id="populated">
             <template>
                 <kwc-product-icon title="Computer Kit"
+                                  target="_self"
                                   icon-id="computer-kit"
                                   href="/store/products/computer-kit"
                                   display-title>
@@ -62,6 +63,10 @@
                     assert.equal(basic.href, null);
                 });
 
+                test('the target should be "_blank" by default', function() {
+                    assert.equal(basic.target, '_blank');
+                });
+
                 test('it should be possible to set the title declaratively', function() {
                     assert.equal(populated.title, titleText);
                 });
@@ -76,6 +81,10 @@
 
                 test('it should be possible to set the href declaratively', function() {
                     assert.equal(populated.href, hrefText);
+                });
+
+                test('it should be possible to set the target declaratively', function() {
+                    assert.equal(populated.target, '_self');
                 });
 
                 test('setting the title should render it in the DOM', function() {

@@ -35,7 +35,7 @@ To display a simple product icon and title that link through to the product deta
                 color: var(--color-black);
             }
         </style>
-        <a href$="[[href]]" title$="[[title]]">
+        <a href$="[[href]]" target$="[[target]]" title$="[[title]]">
             <iron-icon icon="kano-products:[[iconId]]"
                        alt$="[[title]]"></iron-icon>
             <template is="dom-if" if="[[displayTitle]]">
@@ -65,6 +65,11 @@ To display a simple product icon and title that link through to the product deta
                 iconId: {
                     type: String,
                     value: null
+                },
+                /** Link target, defaults to `_blank` */
+                target: {
+                    type: String,
+                    value: '_blank'
                 },
                 /** The product title */
                 title: {
